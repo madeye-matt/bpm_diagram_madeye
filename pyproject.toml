@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bpm_diagram_madeye"
-version = "0.0.2"
+version = "0.1.0"
 description = "A tool to convert BPM diagrams to the Graphviz dot format"
 authors = [
     { name = "Matt Innes", email = "matt@madeye.com" }
