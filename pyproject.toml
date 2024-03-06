@@ -9,11 +9,11 @@ description = "A tool to convert BPM diagrams to the Graphviz dot format"
 authors = [
     { name = "Matt Innes", email = "matt@madeye.com" }
 ]
-license = { text = "Proprietary" }
+license = { text = "MIT" }
 readme = "README.md"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: Proprietary",
+    "License :: OSI Approved :: MIT",
     "Operating System :: OS Independent",
 ]
 requires-python = ">=3.11"
