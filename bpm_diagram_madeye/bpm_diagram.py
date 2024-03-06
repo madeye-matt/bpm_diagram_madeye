@@ -37,7 +37,7 @@ def remove_error_handling(graph, exception_subprocess_name):
     return graph.remove_adjacent(event_ids)
 
 
-if __name__ == '__main__':
+def main():
     parser = get_argparser()
     args = parser.parse_args()
 
@@ -59,3 +59,7 @@ if __name__ == '__main__':
     graph.save(output_file, params)
 
     print(f"{len(graph)} objects from {input_file} written to {output_file}")
+
+
+if __name__ == '__main__':
+    main()

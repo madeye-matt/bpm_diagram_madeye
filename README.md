@@ -1,2 +1,3 @@
-# bpm_diagram_madeye
-A tool to convert BPM diagrams to the Graphviz dot format
+# BPM Diagram Converter
+
+A Python tool to convert BPM diagrams to the Graphviz dot format
