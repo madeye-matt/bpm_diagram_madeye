@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bpm_diagram_madeye"
+version = "0.0.1"
+description = "A tool to convert BPM diagrams to the Graphviz dot format"
+authors = [
+    { name = "Matt Innes", email = "matt@madeye.com" }
+]
+license = { text = "Proprietary" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Proprietary",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "lxml==5.1.0"
+]
+
+[project.urls]
+"Homepage" = ""
+
+[project.scripts]
+bpm_diagram = "bpm_diagram_madeye.bpm_diagram"
