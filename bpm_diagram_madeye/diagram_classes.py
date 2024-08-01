@@ -53,7 +53,7 @@ def handle_coloured_node(colour, element):
 
 
 def handle_node(element):
-    if Graph.element_has_attribs(element, ['id', 'name']):
+    if Graph.element_has_attribs(element, ['id']):
         return Node.from_element(element)
     else:
         raise UnsuitableHandlerException
@@ -262,14 +262,14 @@ class Node:
     def __init__(self, node_id, tag, name, show_id=True, colour=None, extras=None):
         self.id = node_id
         self.__tag = tag
-        self.__name = name
+        self.__name = name if name else '<no_name>'
         self.__show_id = show_id
         self.__colour = colour
         self.__extras = extras
 
     @classmethod
     def from_element(cls, element):
-        return Node(element.attrib['id'], element.tag, element.attrib['name'])
+        return Node(element.attrib['id'], element.tag, element.attrib.get('name'))
 
     def to_dot(self, graph=None, params=None):
         colour_text = f', fillcolor="{self.__colour}", style="filled"' if self.__colour else ''
@@ -468,7 +468,8 @@ class Gateway(Node):
 
     @classmethod
     def from_element(self, element):
-        return Gateway(element.attrib['id'], element.tag, element.attrib['name'])
+        name = element.attrib.get('name')
+        return Gateway(element.attrib['id'], element.tag, name)
 
 
 class ServiceTask(Node):
@@ -498,13 +499,16 @@ class ServiceTask(Node):
 
 
 class TaskListener:
-    def __init__(self, event, class_name):
+    def __init__(self, event, class_name=None, expression=None):
         self.event = event
         self.class_name = class_name
+        self.expression = expression
 
     @classmethod
     def from_element(self, element):
-        return TaskListener(element.attrib['event'], element.attrib['class'])
+        class_name = element.attrib.get('class')
+        expression = element.attrib.get('expression')
+        return TaskListener(element.attrib['event'], class_name=class_name, expression=expression)
 
 
 class UserTask(Node):
